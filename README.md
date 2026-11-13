@@ -92,5 +92,5 @@ solis-soda-landing/
 
 ## Documentation & Swarm Note
 
-- **Agent Collaboration, Models, Tools & Timeline:** See [docs/AGENT_COLLABORATION.md](docs/AGENT_COLLABORATION.md) for the models, tools, external `better-interface` skills, and ~2.5-hour build log.
+- **Agent Collaboration, Tools & Timeline:** See [docs/AGENT_COLLABORATION.md](docs/AGENT_COLLABORATION.md) for the swarm architecture, tools, external `better-interface` skills, and ~2.5-hour build log.
 - **Swarm:** We used **Swarm** to coordinate the agents and build this project, and we will continue maintaining it with Swarm.

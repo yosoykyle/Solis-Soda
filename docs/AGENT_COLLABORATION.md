@@ -16,22 +16,9 @@ All implementation, integration testing, and multi-pass UI/UX auditing were comp
 
 ---
 
-## 2. Swarm Architecture & Model Assignments
+## 2. Swarm Architecture
 
-To prevent merge conflicts and keep changes reviewable, the coordinator partitioned the codebase into strict **zero-overlap file ownership**:
-
-| Agent / Role | Model(s) Used | Owned Scope | Responsibility |
-| :--- | :--- | :--- | :--- |
-| **`coordinator`** | Gemini 4 Hydrogen (Medium) | Board & orchestration | Planned phases, ratified contracts, enforced zero file overlap, ran final smoke checks & server lifecycle. |
-| **`DeepInvestigator`** *(subagent)* | Inherited parent model | Read-only research & audit | Researched production D2C e-commerce/OMS/cold-chain standards and ran the initial security & UI audit. |
-| **`backend-core`** | Gemini 4 Hydrogen (XHigh) | `package.json`, `src/db.js`, `src/auth.js`, `src/security.js` | SQLite schema, integer-cent math, BOM bundle stock, FEFO lots, `scrypt` + HMAC sessions, CSRF, RBAC, strict validators. |
-| **`backend-api`** | Gemini 4 Hydrogen (XHigh) | `server.js`, `src/routes/*.js` | HTTP server, security headers, static allowlist, storefront/account/ops REST APIs, webhook replay protection. |
-| **`frontend-store`** | Gemini 4 Hydrogen (XHigh) | `index.html`, `styles.css`, `app.js` | Storefront UI, canonical `:root` tokens, 3D cans, filters, 2-step sandbox checkout, guest tracker, `SOLIS_APP` bridge. |
-| **`frontend-ops`** | Gemini 4 Hydrogen (XHigh) | `css/portals.css`, `js/portals.js` | Member portal (Orders, Addresses, Build-a-Box Subscriptions, RMA) & RBAC Staff Ops workspace. |
-| **`ui-auditor`** | Gemini 4 Hydrogen (XHigh) → Claude Opus 5.5 (High) *(Phase 4)* | Read-only UI/UX audit | Ran live Chrome CDP screenshot & computed-style audits against all 6 `better-interface` domains and authored the token reconciliation spec. |
-| **`verifier`** | Gemini 4 Hydrogen (Medium) | `tests/ecom.test.mjs` | Maintained the isolated temp-DB integration test suite (`5/5`) and ran Chrome CDP regression gates. |
-| **`monitor`** | Gemini 4 Hydrogen (Medium) → Claude Sonnet 5.5 (Low) | Board watchdog | Watched swarm progress for stalls. |
-| **`Browser Previewer`** *(subagent)* | Flash | Live browser pane | Executed end-to-end interactive storefront, checkout, customer, and admin walkthroughs in the live browser view. |
+SOLIS was built using Antigravity's **Swarm** architecture: a **coordinator** manages execution over a shared message board and dynamically spawns specialized workers and sub-agents based on what each phase requires, enforcing **strict zero-overlap file ownership** across backend core, API routes, storefront, portals, UI/UX auditing, and verification.
 
 ---
 
