@@ -51,9 +51,6 @@ To prevent merge conflicts and keep changes reviewable, the coordinator partitio
 
 ---
 
-## 4. Maintenance & Future Growth Strategy
+## 4. Swarm & Maintenance
 
-Because this project is designed to keep evolving using the **Swarm model**, future updates should follow these guardrails:
-1. **Preserve File Boundaries:** Keep backend core (`src/db.js`, `src/security.js`), API routes (`src/routes/*`), storefront (`index.html`, `styles.css`, `app.js`), and portals (`css/portals.css`, `js/portals.js`) separated by worker role.
-2. **Inherit Canonical Tokens:** Define all surface, radius, color, and focus tokens once in `styles.css` `:root` and consume them in `css/portals.css`.
-3. **Require Dual Verification Gates:** Every change must pass `npm test` (using an isolated temp `DB_PATH` so local `data/solis.db` stays clean) **and** a live Chrome CDP `better-interface` check with `0` `HIGH` / `MEDIUM` findings before merging.
+We used **Swarm** (`/swarm`) to coordinate parallel agents across backend, storefront, portals, UI auditing, and verification, and we will continue maintaining and evolving this project using Swarm.

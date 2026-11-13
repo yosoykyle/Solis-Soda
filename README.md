@@ -90,7 +90,7 @@ solis-soda-landing/
 
 ---
 
-## Documentation & Maintenance Strategy
+## Documentation & Swarm Note
 
-- **Agent Collaboration, Models, Tools & Timeline:** See [docs/AGENT_COLLABORATION.md](docs/AGENT_COLLABORATION.md) for the complete breakdown of the `/swarm` workflow, model assignments, external `better-interface` skills, and ~2.5-hour build log.
-- **Ongoing Maintenance:** Future features and fixes follow the same **zero-overlap Swarm model**—splitting backend, storefront, and portal changes across dedicated workers and requiring both `npm test` (`5/5` passing in an isolated temp DB) and a live Chrome CDP `better-interface` audit before sign-off.
+- **Agent Collaboration, Models, Tools & Timeline:** See [docs/AGENT_COLLABORATION.md](docs/AGENT_COLLABORATION.md) for the models, tools, external `better-interface` skills, and ~2.5-hour build log.
+- **Swarm:** We used **Swarm** to coordinate the agents and build this project, and we will continue maintaining it with Swarm.
