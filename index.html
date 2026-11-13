@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en" data-flavor="blood-orange">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOLIS — Botanical Sparkling Water</title>
+  <meta name="description" content="Cold-pressed orchard citrus, triple-filtered spring water, and organic agave prebiotics. Quietly crafted, served ice-cold." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/portals.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Subtle hairline scroll progress indicator -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Visible refractive ice-blue carbonation pearls -->
+  <canvas class="fizz-canvas" aria-hidden="true" id="fizz-canvas"></canvas>
+
+  <!-- Apple HIG translucent frosted navigation bar -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#main" class="brand-logo" aria-label="SOLIS Home">
+        <svg class="solis-logo-svg" viewBox="0 0 36 36" aria-hidden="true">
+          <g class="solis-rays">
+            <line x1="18" y1="2" x2="18" y2="7" />
+            <line x1="18" y1="29" x2="18" y2="34" />
+            <line x1="2" y1="18" x2="7" y2="18" />
+            <line x1="29" y1="18" x2="34" y2="18" />
+            <line x1="6.7" y1="6.7" x2="10.2" y2="10.2" />
+            <line x1="25.8" y1="25.8" x2="29.3" y2="29.3" />
+            <line x1="29.3" y1="6.7" x2="25.8" y2="10.2" />
+            <line x1="10.2" y1="25.8" x2="6.7" y2="29.3" />
+          </g>
+          <circle cx="18" cy="18" r="7.5" class="solis-core" />
+          <path d="M11.5,19.5 Q18,15.5 24.5,19.5" class="solis-wave-cut" />
+        </svg>
+        <span>SOLIS</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#manifesto">Philosophy</a>
+        <a href="#story">Ingredients</a>
+        <a href="#flavors">Collection</a>
+        <a href="#nutrition">Formulation</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="motion-toggle"
+          id="motion-toggle"
+          aria-pressed="false"
+          aria-label="Pause Fizz — ambient bubbles"
+          title="Pause Fizz — ambient bubbles"
+        >
+          <span class="motion-icon" aria-hidden="true">⏸</span>
+          <span class="motion-label">Pause Fizz</span>
+        </button>
+
+        <button
+          type="button"
+          class="account-toggle"
+          id="account-toggle"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="account-portal"
+        >
+          <span id="account-toggle-label">Sign In</span>
+        </button>
+
+        <button
+          type="button"
+          class="bag-toggle"
+          id="bag-toggle"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="bag-drawer"
+        >
+          <span>Bag</span>
+          <span class="bag-count" id="bag-count">0</span>
+        </button>
+
+        <a href="#order" class="btn btn-primary btn-sm header-reserve-link">Reserve</a>
+
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="mobile-nav-drawer"
+          aria-label="Open navigation menu"
+        >
+          <span class="hamburger-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ====================================================================
+         1. QUIET STICKY HERO (Apple-style spatial settle on scroll)
+         ==================================================================== -->
+    <section class="hero-track" id="hero">
+      <div class="hero-sticky">
+        <div class="hero-frost-aura" aria-hidden="true"></div>
+        <!-- Subtle repeating SOLIS brand logo pattern -->
+        <svg class="solis-pattern-bg" aria-hidden="true">
+          <defs>
+            <pattern id="solis-tile" width="96" height="96" patternUnits="userSpaceOnUse">
+              <circle cx="48" cy="48" r="14" fill="none" stroke="currentColor" stroke-width="1" />
+              <line x1="48" y1="24" x2="48" y2="30" stroke="currentColor" stroke-width="1" />
+              <line x1="48" y1="66" x2="48" y2="72" stroke="currentColor" stroke-width="1" />
+              <line x1="24" y1="48" x2="30" y2="48" stroke="currentColor" stroke-width="1" />
+              <line x1="66" y1="48" x2="72" y2="48" stroke="currentColor" stroke-width="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#solis-tile)" />
+        </svg>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow-text">Batch 04 · Cold-Pressed Botanicals</p>
+            <h1 class="hero-title">
+              Pure citrus.<br />
+              <span class="accent-serif">Quietly</span> sparkling.
+            </h1>
+            <p class="hero-subtitle">
+              Sun-ripened fruit pressed within 24 hours of harvest, chilled to 34°F,
+              and lifted with fine mineral carbonation. Zero artificial sweeteners.
+            </p>
+
+            <!-- Quiet segmented flavor selector (all 4 flavors) -->
+            <div class="flavor-switcher" role="group" aria-label="Preview flavor">
+              <button type="button" class="flavor-pill is-active" data-flavor-btn="blood-orange" aria-pressed="true">
+                <span class="swatch" style="--c: #a83516" aria-hidden="true"></span>
+                Blood Orange
+              </button>
+              <button type="button" class="flavor-pill" data-flavor-btn="yuzu-lime" aria-pressed="false">
+                <span class="swatch" style="--c: #366926" aria-hidden="true"></span>
+                Yuzu Lime
+              </button>
+              <button type="button" class="flavor-pill" data-flavor-btn="hibiscus-berry" aria-pressed="false">
+                <span class="swatch" style="--c: #a62952" aria-hidden="true"></span>
+                Hibiscus Berry
+              </button>
+              <button type="button" class="flavor-pill" data-flavor-btn="ginger-peach" aria-pressed="false">
+                <span class="swatch" style="--c: #8c5308" aria-hidden="true"></span>
+                Ginger Peach
+              </button>
+            </div>
+
+            <div class="hero-ctas">
+              <a href="#flavors" class="btn btn-primary btn-lg">Explore Collection</a>
+              <a href="#story" class="btn btn-ghost btn-lg">How it’s made</a>
+            </div>
+          </div>
+
+          <!-- Calm, poised 3D Can surrounded by subtle refractive ice & fizz -->
+          <div class="hero-stage">
+            <svg class="ice-crystal ice-1" viewBox="0 0 100 100" aria-hidden="true">
+              <polygon points="24,14 76,10 90,44 82,84 26,88 12,50" fill="rgba(195, 226, 248, 0.45)" stroke="rgba(255, 255, 255, 0.95)" stroke-width="2" />
+              <polyline points="24,14 52,40 90,44" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="1.5" />
+              <line x1="52" y1="40" x2="26" y2="88" stroke="rgba(120, 175, 218, 0.45)" stroke-width="1.5" />
+            </svg>
+
+            <svg class="ice-crystal ice-2" viewBox="0 0 100 100" aria-hidden="true">
+              <polygon points="20,24 72,14 86,58 66,86 18,72" fill="rgba(195, 226, 248, 0.38)" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2" />
+              <polyline points="20,24 50,48 86,58" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.5" />
+            </svg>
+
+            <div class="can-showcase" id="hero-can">
+              <div class="can-frost-shadow" aria-hidden="true"></div>
+              <div class="soda-can" role="img" aria-label="SOLIS Blood Orange & Rosemary 12 fl oz aluminum can">
+                <div class="can-rim-top"></div>
+                <div class="can-neck"></div>
+                <div class="can-body">
+                  <div class="can-condensation"></div>
+                  <div class="can-label">
+                    <span class="can-badge">BOTANICAL SODA</span>
+                    <div class="can-label-band">
+                      <span class="can-brand">SOLIS</span>
+                      <span class="can-flavor-name" id="can-flavor-name">BLOOD ORANGE<br />&amp; ROSEMARY</span>
+                    </div>
+                    <div class="can-graphic" aria-hidden="true">
+                      <div class="can-sun"></div>
+                      <div class="can-wave"></div>
+                    </div>
+                    <div class="can-meta" id="can-meta">
+                      <span>35 CAL</span>
+                      <span>0G ADDED SUGAR</span>
+                      <span>12 FL OZ</span>
+                    </div>
+                  </div>
+                  <div class="can-specular"></div>
+                </div>
+                <div class="can-rim-bottom"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         2. EDITORIAL SCROLL-ILLUMINATED STATEMENT (Apple-style line reveal)
+         ==================================================================== -->
+    <section class="manifesto-section" id="manifesto">
+      <div class="manifesto-inner">
+        <p class="manifesto-line">Most sodas hide behind syrups and lab extracts.</p>
+        <p class="manifesto-line">We press whole Sicilian citrus, chill spring water to 34°F,</p>
+        <p class="manifesto-line">and let clean botanical fizz speak for itself.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. QUIET SCROLLYTELLING: THREE INGREDIENTS
+         ==================================================================== -->
+    <section class="scrolly-section" id="story">
+      <div class="section-header reveal-calm">
+        <span class="section-kicker">01 · Ingredients</span>
+        <h2>Three elements. Nothing artificial.</h2>
+      </div>
+
+      <div class="scrolly-grid">
+        <div class="scrolly-visual-col">
+          <div class="scrolly-stage" id="scrolly-stage">
+            <!-- Quiet rotating SOLIS solar grid backdrop -->
+            <svg class="stage-solar-backdrop" viewBox="0 0 320 320" aria-hidden="true">
+              <circle cx="160" cy="160" r="132" fill="none" stroke="rgba(17,24,39,0.06)" stroke-width="1" stroke-dasharray="4 8" />
+              <circle cx="160" cy="160" r="96" fill="none" stroke="rgba(17,24,39,0.05)" stroke-width="1" />
+            </svg>
+
+            <!-- Visual 01: Large Animated Citrus Cross-Section & Juice Droplets -->
+            <div class="stage-card stage-card-1">
+              <svg viewBox="0 0 260 260" class="stage-hero-svg" role="img" aria-label="Cold-pressed citrus illustration">
+                <circle cx="130" cy="130" r="102" fill="var(--accent)" opacity="0.12" />
+                <circle cx="130" cy="130" r="88" fill="var(--accent)" />
+                <circle cx="130" cy="130" r="78" fill="#fff9f2" />
+                <g fill="var(--accent)" opacity="0.88">
+                  <path d="M130,130 L130,58 A72,72 0 0,1 180,78 Z" />
+                  <path d="M130,130 L185,84 A72,72 0 0,1 202,134 Z" />
+                  <path d="M130,130 L200,142 A72,72 0 0,1 168,192 Z" />
+                  <path d="M130,130 L160,196 A72,72 0 0,1 102,196 Z" />
+                  <path d="M130,130 L94,192 A72,72 0 0,1 62,142 Z" />
+                  <path d="M130,130 L60,134 A72,72 0 0,1 77,84 Z" />
+                  <path d="M130,130 L82,78 A72,72 0 0,1 124,58 Z" />
+                </g>
+                <circle cx="130" cy="130" r="10" fill="#fff9f2" />
+                <circle cx="222" cy="64" r="7" fill="var(--accent)" opacity="0.65" />
+                <circle cx="42" cy="198" r="5" fill="var(--accent)" opacity="0.5" />
+                <circle cx="216" cy="204" r="9" fill="var(--accent)" opacity="0.35" />
+              </svg>
+            </div>
+
+            <!-- Visual 02: Large Animated Faceted Ice Cube & Rising CO2 Pearls -->
+            <div class="stage-card stage-card-2">
+              <svg viewBox="0 0 260 260" class="stage-hero-svg" role="img" aria-label="Chilled 34°F micro-carbonation illustration">
+                <polygon points="64,62 178,46 212,126 172,214 68,198 42,118" fill="rgba(174, 218, 250, 0.38)" stroke="#ffffff" stroke-width="3" />
+                <polygon points="64,62 178,46 130,124" fill="rgba(255, 255, 255, 0.35)" />
+                <polyline points="64,62 130,124 212,126" fill="none" stroke="#ffffff" stroke-width="2.5" />
+                <line x1="130" y1="124" x2="68" y2="198" stroke="rgba(68, 134, 198, 0.35)" stroke-width="2" />
+                <circle cx="96" cy="96" r="14" fill="rgba(255,255,255,0.75)" stroke="rgba(56,126,198,0.4)" stroke-width="1.5" />
+                <circle cx="158" cy="84" r="20" fill="rgba(255,255,255,0.65)" stroke="rgba(56,126,198,0.4)" stroke-width="1.5" />
+                <circle cx="138" cy="162" r="24" fill="rgba(255,255,255,0.55)" stroke="rgba(56,126,198,0.45)" stroke-width="1.5" />
+                <circle cx="192" cy="54" r="8" fill="rgba(168,214,250,0.65)" stroke="rgba(56,126,198,0.45)" stroke-width="1.5" />
+              </svg>
+            </div>
+
+            <!-- Visual 03: Large Animated Botanical Agave Rosette & Fiber Rings -->
+            <div class="stage-card stage-card-3">
+              <svg viewBox="0 0 260 260" class="stage-hero-svg" role="img" aria-label="Organic agave prebiotic illustration">
+                <circle cx="130" cy="130" r="96" fill="rgba(54, 105, 38, 0.08)" stroke="rgba(54, 105, 38, 0.25)" stroke-width="1.5" />
+                <circle cx="130" cy="130" r="68" fill="none" stroke="rgba(54, 105, 38, 0.3)" stroke-width="1.5" stroke-dasharray="6 6" />
+                <path d="M130,214 C130,150 76,94 52,52 C92,72 120,118 130,214 Z" fill="rgba(54, 105, 38, 0.26)" stroke="#366926" stroke-width="2.5" />
+                <path d="M130,214 C130,150 184,94 208,52 C168,72 140,118 130,214 Z" fill="rgba(54, 105, 38, 0.2)" stroke="#366926" stroke-width="2.5" />
+                <path d="M130,214 C98,144 108,82 130,36 C152,82 162,144 130,214 Z" fill="rgba(54, 105, 38, 0.34)" stroke="#366926" stroke-width="2.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="scrolly-chapters" id="tracked-chapters">
+          <article class="chapter-card" data-step="1">
+            <span class="chapter-num">01</span>
+            <h3>Harvested at peak Brix.</h3>
+            <p>
+              Instead of lab-synthesized “natural flavors,” we cold-press whole orchard citrus
+              and steep botanical herbs so every sip carries real aromatic peel oils.
+            </p>
+            <div class="chapter-meta">14% real juice · Zero stevia aftertaste</div>
+          </article>
+
+          <article class="chapter-card" data-step="2">
+            <span class="chapter-num">02</span>
+            <h3>Fine, lasting effervescence.</h3>
+            <p>
+              By chilling triple-filtered spring water near freezing before carbonating,
+              the bubbles bind tighter—delivering a crisp, champagne-like lift.
+            </p>
+            <div class="chapter-meta">4.2 volumes CO₂ · Triple-filtered</div>
+          </article>
+
+          <article class="chapter-card" data-step="3">
+            <span class="chapter-num">03</span>
+            <h3>Gentle daily prebiotics.</h3>
+            <p>
+              Five grams of organic blue agave inulin dissolve cleanly with zero chalkiness,
+              supporting gut balance while keeping calories at 35.
+            </p>
+            <div class="chapter-meta">5g plant fiber · 4g natural fruit sugar</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. CURATED COLLECTION (Search, Filter, Sort + Variant Selector + BOM)
+         ==================================================================== -->
+    <section class="flavors-section" id="flavors">
+      <div class="flavors-header-row reveal-calm">
+        <div class="section-header">
+          <span class="section-kicker">02 · The Collection</span>
+          <h2>Four botanical pours &amp; curated box.</h2>
+        </div>
+        <div class="carousel-controls" aria-label="Carousel navigation">
+          <button type="button" class="carousel-btn" id="carousel-prev" aria-label="Previous flavor"><span class="dir-arrow" aria-hidden="true">←</span></button>
+          <button type="button" class="carousel-btn" id="carousel-next" aria-label="Next flavor"><span class="dir-arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+      <div class="collection-toolbar" role="region" aria-label="Filter and sort collection">
+        <div class="toolbar-search-wrap">
+          <label for="collection-search" class="toolbar-label">Search collection</label>
+          <input
+            type="search"
+            id="collection-search"
+            name="q"
+            class="form-control form-control-sm collection-search-input"
+            placeholder="Citrus, peach, ginger…"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="toolbar-filters" role="group" aria-label="Filter by profile" id="collection-tag-filters">
+          <button type="button" class="filter-chip is-active" data-filter-tag="" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-filter-tag="Signature" aria-pressed="false">Signature</button>
+          <button type="button" class="filter-chip" data-filter-tag="Ultra Crisp" aria-pressed="false">Ultra Crisp</button>
+          <button type="button" class="filter-chip" data-filter-tag="Floral" aria-pressed="false">Floral</button>
+          <button type="button" class="filter-chip" data-filter-tag="Limited" aria-pressed="false">Limited</button>
+          <button type="button" class="filter-chip" data-filter-tag="Bundle" aria-pressed="false">Bundle</button>
+        </div>
+
+        <div class="toolbar-sort-wrap">
+          <label for="collection-sort" class="toolbar-label">Sort by</label>
+          <select id="collection-sort" name="sort" class="form-control form-control-sm collection-sort-select">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="calories-asc">Calories: Low to High</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="collection-status" id="collection-status" role="status" aria-live="polite">
+        Showing 5 botanical selections
+      </p>
+
+      <div class="flavor-scroller" id="flavor-scroller" tabindex="0" aria-label="Flavor lineup carousel">
+        <article class="flavor-card" data-flavor-id="blood-orange" style="--card-accent: #a83516;">
+          <div class="flavor-card-top">
+            <span class="flavor-tag">Signature</span>
+            <span class="flavor-cal">35 cal</span>
+          </div>
+          <div class="mini-can-wrap">
+            <div class="mini-can" style="--can-bg: linear-gradient(155deg, #EB6B47 0%, #C93D1B 60%, #8A220A 100%);">
+              <div class="mini-can-rim-top"></div>
+              <div class="mini-can-neck"></div>
+              <div class="mini-can-body">
+                <div class="mini-can-condensation"></div>
+                <div class="mini-can-label">
+                  <span class="mini-can-kicker">BOTANICAL</span>
+                  <div class="mini-can-band">
+                    <span class="mini-can-brand">SOLIS</span>
+                    <span class="mini-can-sub">BLOOD ORANGE</span>
+                  </div>
+                  <div class="mini-can-art" aria-hidden="true">
+                    <span class="mini-art-sun"></span>
+                    <span class="mini-art-wave"></span>
+                  </div>
+                  <span class="mini-can-oz">35 CAL · 12 OZ</span>
+                </div>
+                <div class="mini-can-specular"></div>
+              </div>
+              <div class="mini-can-rim-bottom"></div>
+            </div>
+          </div>
+          <h3>Blood Orange &amp; Rosemary</h3>
+          <p>Sicilian blood orange balanced by a subtle, aromatic sprig of garden rosemary.</p>
+          <div class="card-meta-row">
+            <strong class="flavor-price">$34.00</strong>
+            <span class="stock-badge is-in-stock">● In stock</span>
+          </div>
+          <button type="button" class="btn btn-outline add-pack-btn" data-add-flavor="blood-orange">
+            Add 12-Pack to Bag
+          </button>
+        </article>
+
+        <article class="flavor-card" data-flavor-id="yuzu-lime" style="--card-accent: #366926;">
+          <div class="flavor-card-top">
+            <span class="flavor-tag">Ultra Crisp</span>
+            <span class="flavor-cal">30 cal</span>
+          </div>
+          <div class="mini-can-wrap">
+            <div class="mini-can" style="--can-bg: linear-gradient(155deg, #8CC265 0%, #4E8C3A 60%, #26541D 100%);">
+              <div class="mini-can-rim-top"></div>
+              <div class="mini-can-neck"></div>
+              <div class="mini-can-body">
+                <div class="mini-can-condensation"></div>
+                <div class="mini-can-label">
+                  <span class="mini-can-kicker">BOTANICAL</span>
+                  <div class="mini-can-band">
+                    <span class="mini-can-brand">SOLIS</span>
+                    <span class="mini-can-sub">YUZU LIME</span>
+                  </div>
+                  <div class="mini-can-art" aria-hidden="true">
+                    <span class="mini-art-sun"></span>
+                    <span class="mini-art-wave"></span>
+                  </div>
+                  <span class="mini-can-oz">30 CAL · 12 OZ</span>
+                </div>
+                <div class="mini-can-specular"></div>
+              </div>
+              <div class="mini-can-rim-bottom"></div>
+            </div>
+          </div>
+          <h3>Yuzu Lime &amp; Sea Salt</h3>
+          <p>Japanese yuzu zest, key lime juice, and a clean pinch of Pacific sea salt.</p>
+          <div class="card-meta-row">
+            <strong class="flavor-price">$34.00</strong>
+            <span class="stock-badge is-in-stock">● In stock</span>
+          </div>
+          <button type="button" class="btn btn-outline add-pack-btn" data-add-flavor="yuzu-lime">
+            Add 12-Pack to Bag
+          </button>
+        </article>
+
+        <article class="flavor-card" data-flavor-id="hibiscus-berry" style="--card-accent: #a62952;">
+          <div class="flavor-card-top">
+            <span class="flavor-tag">Floral</span>
+            <span class="flavor-cal">35 cal</span>
+          </div>
+          <div class="mini-can-wrap">
+            <div class="mini-can" style="--can-bg: linear-gradient(155deg, #E36B8E 0%, #C43462 60%, #781737 100%);">
+              <div class="mini-can-rim-top"></div>
+              <div class="mini-can-neck"></div>
+              <div class="mini-can-body">
+                <div class="mini-can-condensation"></div>
+                <div class="mini-can-label">
+                  <span class="mini-can-kicker">BOTANICAL</span>
+                  <div class="mini-can-band">
+                    <span class="mini-can-brand">SOLIS</span>
+                    <span class="mini-can-sub">HIBISCUS BERRY</span>
+                  </div>
+                  <div class="mini-can-art" aria-hidden="true">
+                    <span class="mini-art-sun"></span>
+                    <span class="mini-art-wave"></span>
+                  </div>
+                  <span class="mini-can-oz">35 CAL · 12 OZ</span>
+                </div>
+                <div class="mini-can-specular"></div>
+              </div>
+              <div class="mini-can-rim-bottom"></div>
+            </div>
+          </div>
+          <h3>Hibiscus &amp; Wild Berry</h3>
+          <p>Steeped crimson hibiscus petals muddled with tart blackberry and ginger.</p>
+          <div class="card-meta-row">
+            <strong class="flavor-price">$34.00</strong>
+            <span class="stock-badge is-in-stock">● In stock</span>
+          </div>
+          <button type="button" class="btn btn-outline add-pack-btn" data-add-flavor="hibiscus-berry">
+            Add 12-Pack to Bag
+          </button>
+        </article>
+
+        <article class="flavor-card" data-flavor-id="ginger-peach" style="--card-accent: #8c5308;">
+          <div class="flavor-card-top">
+            <span class="flavor-tag">Limited</span>
+            <span class="flavor-cal">40 cal</span>
+          </div>
+          <div class="mini-can-wrap">
+            <div class="mini-can" style="--can-bg: linear-gradient(155deg, #F0B654 0%, #C9821E 60%, #7D4B08 100%);">
+              <div class="mini-can-rim-top"></div>
+              <div class="mini-can-neck"></div>
+              <div class="mini-can-body">
+                <div class="mini-can-condensation"></div>
+                <div class="mini-can-label">
+                  <span class="mini-can-kicker">BOTANICAL</span>
+                  <div class="mini-can-band">
+                    <span class="mini-can-brand">SOLIS</span>
+                    <span class="mini-can-sub">GINGER PEACH</span>
+                  </div>
+                  <div class="mini-can-art" aria-hidden="true">
+                    <span class="mini-art-sun"></span>
+                    <span class="mini-art-wave"></span>
+                  </div>
+                  <span class="mini-can-oz">40 CAL · 12 OZ</span>
+                </div>
+                <div class="mini-can-specular"></div>
+              </div>
+              <div class="mini-can-rim-bottom"></div>
+            </div>
+          </div>
+          <h3>Golden Ginger &amp; Peach</h3>
+          <p>Cold-pressed Peruvian ginger root softened with ripe white peach.</p>
+          <div class="card-meta-row">
+            <strong class="flavor-price">$36.00</strong>
+            <span class="stock-badge is-in-stock">● In stock</span>
+          </div>
+          <button type="button" class="btn btn-outline add-pack-btn" data-add-flavor="ginger-peach">
+            Add 12-Pack to Bag
+          </button>
+        </article>
+
+        <article class="flavor-card" data-flavor-id="variety" style="--card-accent: #0A5E9E;">
+          <div class="flavor-card-top">
+            <span class="flavor-tag">Bundle</span>
+            <span class="flavor-cal">35 cal</span>
+          </div>
+          <div class="mini-can-wrap">
+            <div class="mini-can" style="--can-bg: linear-gradient(155deg, #6ba4d9 0%, #2c5b8c 58%, #183454 100%);">
+              <div class="mini-can-rim-top"></div>
+              <div class="mini-can-neck"></div>
+              <div class="mini-can-body">
+                <div class="mini-can-condensation"></div>
+                <div class="mini-can-label">
+                  <span class="mini-can-kicker">CURATED BOX</span>
+                  <div class="mini-can-band">
+                    <span class="mini-can-brand">SOLIS</span>
+                    <span class="mini-can-sub">ALL 4 FLAVORS</span>
+                  </div>
+                  <div class="mini-can-art" aria-hidden="true">
+                    <span class="mini-art-sun"></span>
+                    <span class="mini-art-wave"></span>
+                  </div>
+                  <span class="mini-can-oz">12 CANS · MIXED</span>
+                </div>
+                <div class="mini-can-specular"></div>
+              </div>
+              <div class="mini-can-rim-bottom"></div>
+            </div>
+          </div>
+          <h3>Variety 12-Pack (All 4 Flavors)</h3>
+          <p>Three chilled cans of each signature botanical pour in one curated tasting box.</p>
+          <div class="card-meta-row">
+            <strong class="flavor-price">$34.00</strong>
+            <span class="stock-badge is-in-stock">● In stock</span>
+          </div>
+          <button type="button" class="btn btn-outline add-pack-btn" data-add-flavor="variety">
+            Add Variety 12-Pack
+          </button>
+        </article>
+      </div>
+
+      <div class="collection-empty" id="collection-empty" hidden>
+        <p class="collection-empty-title" id="collection-empty-msg">No botanical pours match your search or tag filter.</p>
+        <button type="button" class="btn btn-outline btn-sm" id="collection-clear">Clear filters</button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. QUIET FORMULATION SPECS (Apple-style hairline metric grid)
+         ==================================================================== -->
+    <section class="nutrition-section" id="nutrition">
+      <div class="section-header reveal-calm">
+        <span class="section-kicker">03 · Formulation</span>
+        <h2>Transparent by design.</h2>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-item reveal-calm">
+          <span class="spec-stat">0g</span>
+          <h3>Added Sugar</h3>
+          <p>Only 4g natural fruit sugar from cold-pressed juice. No cane syrup or stevia.</p>
+          <div class="stat-rule" aria-hidden="true">
+            <div class="stat-rule-fill" style="--fill-target: 0.08;"></div>
+          </div>
+        </div>
+
+        <div class="spec-item reveal-calm">
+          <span class="spec-stat">35</span>
+          <h3>Calories</h3>
+          <p>Crisp enough for an afternoon reset, balanced enough to pour over ice.</p>
+          <div class="stat-rule" aria-hidden="true">
+            <div class="stat-rule-fill" style="--fill-target: 0.25;"></div>
+          </div>
+        </div>
+
+        <div class="spec-item reveal-calm">
+          <span class="spec-stat">5g</span>
+          <h3>Prebiotic Fiber</h3>
+          <p>Organic blue agave inulin that dissolves cleanly without grit.</p>
+          <div class="stat-rule" aria-hidden="true">
+            <div class="stat-rule-fill" style="--fill-target: 0.72;"></div>
+          </div>
+        </div>
+
+        <div class="spec-item reveal-calm">
+          <span class="spec-stat">100%</span>
+          <h3>Recyclable Aluminum</h3>
+          <p>Chills faster than glass and ships with lower transit emissions.</p>
+          <div class="stat-rule" aria-hidden="true">
+            <div class="stat-rule-fill" style="--fill-target: 1;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. QUIET RESERVE / ORDER SHEET + VERIFIED GUEST ORDER TRACKER
+         ==================================================================== -->
+    <section class="order-section reveal-calm" id="order">
+      <div class="order-box">
+        <div class="order-copy">
+          <div class="order-tabs" role="tablist" aria-label="Order options">
+            <button
+              type="button"
+              class="order-tab is-active"
+              id="tab-reserve"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-reserve"
+              tabindex="0"
+            >
+              Quick Reserve
+            </button>
+            <button
+              type="button"
+              class="order-tab"
+              id="tab-track"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-track"
+              tabindex="-1"
+            >
+              Track Order
+            </button>
+          </div>
+          <span class="section-kicker">04 · Reserve &amp; Track</span>
+          <h2 id="order-heading">Stock the fridge.</h2>
+          <p id="order-subtitle">Choose any pack size or the Variety 12-Pack. Complimentary chilled shipping over $35.</p>
+          <div class="pack-summary" id="pack-summary">
+            <div class="pack-row">
+              <span>Selection</span>
+              <strong id="selected-pack-label">Variety 12-Pack (All 4 Flavors)</strong>
+            </div>
+            <div class="pack-row">
+              <span>Quantity</span>
+              <strong id="selected-qty-label">1 × Pack</strong>
+            </div>
+            <div class="pack-row">
+              <span>Subtotal</span>
+              <strong id="pack-price">$34.00</strong>
+            </div>
+            <div class="pack-row pack-shipping-row">
+              <span>Chilled Shipping</span>
+              <strong id="shipping-status" class="shipping-status">Add $1.00 for free shipping</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-panels">
+          <div id="panel-reserve" role="tabpanel" aria-labelledby="tab-reserve">
+            <form class="order-form" id="order-form" novalidate>
+              <div class="field-group">
+                <label for="pack-select" class="field-label">Choose your pack</label>
+                <select id="pack-select" name="pack" class="form-control">
+                  <option value="variety" data-pack-id="variety">Variety 12-Pack (All 4 Flavors) — $34.00</option>
+                  <option value="blood-orange" data-pack-id="blood-orange">Blood Orange &amp; Rosemary (12-Pack) — $34.00</option>
+                  <option value="yuzu-lime" data-pack-id="yuzu-lime">Yuzu Lime &amp; Sea Salt (12-Pack) — $34.00</option>
+                  <option value="hibiscus-berry" data-pack-id="hibiscus-berry">Hibiscus &amp; Wild Berry (12-Pack) — $34.00</option>
+                  <option value="ginger-peach" data-pack-id="ginger-peach">Golden Ginger &amp; Peach (12-Pack) — $36.00</option>
+                </select>
+              </div>
+
+              <div class="qty-field">
+                <span class="qty-field-label" id="qty-label">Packs</span>
+                <div class="qty-segmented" role="group" aria-labelledby="qty-label">
+                  <button type="button" class="qty-btn is-active" data-qty="1" aria-pressed="true">1</button>
+                  <button type="button" class="qty-btn" data-qty="2" aria-pressed="false">2</button>
+                  <button type="button" class="qty-btn" data-qty="3" aria-pressed="false">3</button>
+                  <button type="button" class="qty-btn" data-qty="4" aria-pressed="false">4</button>
+                  <button type="button" class="qty-btn" data-qty="5" aria-pressed="false">5</button>
+                </div>
+                <input type="hidden" id="quantity-input" name="quantity" value="1" />
+              </div>
+
+              <div class="field-group">
+                <label for="email-input" class="field-label">Email for order confirmation <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email-input"
+                  name="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  autocomplete="email"
+                  spellcheck="false"
+                  required
+                  aria-describedby="email-input-error"
+                />
+                <p class="field-error" id="email-input-error" hidden></p>
+              </div>
+
+              <button type="submit" id="order-submit" class="btn btn-primary btn-lg btn-full">
+                Add to Bag &amp; Reserve
+              </button>
+              <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div id="panel-track" role="tabpanel" aria-labelledby="tab-track" hidden>
+            <form class="order-form" id="track-form" novalidate>
+              <div class="field-group">
+                <label for="track-order-id" class="field-label">Order ID <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="track-order-id"
+                  name="orderId"
+                  class="form-control"
+                  placeholder="SOLIS-A1B2C3"
+                  autocomplete="off"
+                  spellcheck="false"
+                  required
+                  aria-describedby="track-order-id-error"
+                />
+                <p class="field-error" id="track-order-id-error" hidden></p>
+              </div>
+
+              <div class="field-group">
+                <label for="track-order-email" class="field-label">Checkout email <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="track-order-email"
+                  name="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  autocomplete="email"
+                  spellcheck="false"
+                  required
+                  aria-describedby="track-order-email-error"
+                />
+                <p class="field-error" id="track-order-email-error" hidden></p>
+              </div>
+
+              <button type="submit" id="track-submit" class="btn btn-primary btn-lg btn-full">
+                Check Order Status
+              </button>
+              <div class="form-feedback" id="track-feedback" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-logo">
+          <svg class="solis-logo-svg" viewBox="0 0 36 36" aria-hidden="true">
+            <g class="solis-rays">
+              <line x1="18" y1="2" x2="18" y2="7" />
+              <line x1="18" y1="29" x2="18" y2="34" />
+              <line x1="2" y1="18" x2="7" y2="18" />
+              <line x1="29" y1="18" x2="34" y2="18" />
+              <line x1="6.7" y1="6.7" x2="10.2" y2="10.2" />
+              <line x1="25.8" y1="25.8" x2="29.3" y2="29.3" />
+              <line x1="29.3" y1="6.7" x2="25.8" y2="10.2" />
+              <line x1="10.2" y1="25.8" x2="6.7" y2="29.3" />
+            </g>
+            <circle cx="18" cy="18" r="7.5" class="solis-core" />
+            <path d="M11.5,19.5 Q18,15.5 24.5,19.5" class="solis-wave-cut" />
+          </svg>
+          <span>SOLIS</span>
+        </span>
+        <p>Botanical Sparkling Water · Cold-pressed in California.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#manifesto">Philosophy</a>
+        <a href="#story">Ingredients</a>
+        <a href="#flavors">Collection</a>
+        <a href="#order">Reserve</a>
+        <button type="button" class="footer-policy-btn" data-policy="privacy">Privacy</button>
+        <button type="button" class="footer-policy-btn" data-policy="terms">Terms</button>
+        <button type="button" class="footer-policy-btn" data-policy="shipping">Cold-Chain Shipping</button>
+        <button type="button" class="footer-policy-btn" data-policy="returns">Returns</button>
+        <button type="button" class="footer-policy-btn" data-policy="nutrition">Nutrition &amp; Allergens</button>
+        <button
+          type="button"
+          class="footer-ops-btn"
+          id="ops-toggle"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          hidden
+        >
+          Staff Ops
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Backdrop for accessible slide-over drawers -->
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+
+  <!-- Mobile Navigation Drawer (<= 900px) -->
+  <aside
+    class="drawer drawer-nav"
+    id="mobile-nav-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="mobile-nav-title"
+    hidden
+  >
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-kicker">SOLIS Menu</span>
+        <h2 id="mobile-nav-title">Explore</h2>
+      </div>
+      <button type="button" class="drawer-close" id="mobile-nav-close" aria-label="Close navigation menu">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <nav class="mobile-nav-links" aria-label="Mobile navigation">
+        <a href="#manifesto" class="mobile-nav-link">Philosophy</a>
+        <a href="#story" class="mobile-nav-link">Ingredients</a>
+        <a href="#flavors" class="mobile-nav-link">Collection</a>
+        <a href="#nutrition" class="mobile-nav-link">Formulation</a>
+        <a href="#order" class="mobile-nav-link">Reserve &amp; Track</a>
+      </nav>
+
+      <div class="mobile-nav-actions">
+        <button type="button" class="btn btn-outline btn-full" id="mobile-account-btn">
+          Account &amp; Sign In
+        </button>
+        <button type="button" class="btn btn-primary btn-full" id="mobile-bag-btn">
+          <span>Open Bag (<span id="mobile-bag-count">0</span>)</span>
+        </button>
+        <button type="button" class="btn btn-outline btn-full" id="mobile-motion-toggle" aria-pressed="false" aria-label="Pause Fizz — ambient bubbles">
+          Pause Fizz
+        </button>
+        <button type="button" class="btn btn-outline btn-full" id="mobile-ops-btn" hidden>
+          Staff Ops Workspace
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Shopping Bag & Checkout Drawer -->
+  <aside
+    class="drawer"
+    id="bag-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="bag-drawer-title"
+    hidden
+  >
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-kicker">SOLIS Direct</span>
+        <h2 id="bag-drawer-title">Your Bag</h2>
+      </div>
+      <button type="button" class="drawer-close" id="bag-close" aria-label="Close bag">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="bag-empty" id="bag-empty">
+        <p class="bag-empty-title">Your chilled bag is empty.</p>
+        <p class="bag-empty-sub">Select a 6-pack, 12-pack, 24-pack, or Variety box from the collection.</p>
+        <a href="#flavors" class="btn btn-outline btn-sm" id="bag-browse-btn">Browse Flavors</a>
+      </div>
+
+      <div class="bag-content" id="bag-content" hidden>
+        <ul class="bag-items" id="bag-items" aria-label="Bag items"></ul>
+
+        <form class="promo-row" id="promo-form" novalidate>
+          <div class="promo-input-wrap">
+            <label for="promo-input" class="field-label">Promo code</label>
+            <div class="promo-controls">
+              <input
+                type="text"
+                id="promo-input"
+                name="promoCode"
+                class="form-control form-control-sm"
+                placeholder="SOLIS10 or SOLIS5"
+                autocomplete="off"
+                spellcheck="false"
+                aria-describedby="promo-feedback"
+              />
+              <button type="submit" class="btn btn-outline btn-sm" id="promo-apply">Apply</button>
+              <button type="button" class="btn btn-outline btn-sm" id="promo-remove" hidden>Remove</button>
+            </div>
+          </div>
+        </form>
+        <p class="promo-feedback" id="promo-feedback" role="status" aria-live="polite"></p>
+
+        <div class="bag-totals">
+          <div class="pack-row">
+            <span>Subtotal</span>
+            <strong id="bag-subtotal">$0.00</strong>
+          </div>
+          <div class="pack-row" id="bag-discount-row" hidden>
+            <span id="bag-discount-label">Promo</span>
+            <strong id="bag-discount">-$0.00</strong>
+          </div>
+          <div class="pack-row">
+            <span>Estimated Tax (8.25%)</span>
+            <strong id="bag-tax">$0.00</strong>
+          </div>
+          <div class="pack-row">
+            <span>Chilled Shipping</span>
+            <strong id="bag-shipping">$6.00</strong>
+          </div>
+          <p class="bag-shipping-note" id="bag-shipping-note"></p>
+          <div class="pack-row bag-total-row">
+            <span>Total</span>
+            <strong id="bag-total">$0.00</strong>
+          </div>
+        </div>
+
+        <form class="checkout-form" id="checkout-form" novalidate>
+          <div class="checkout-step-bar" aria-live="polite">
+            <span class="step-pill is-active" id="step-pill-delivery">1. Delivery</span>
+            <span class="step-pill" id="step-pill-payment">2. Payment</span>
+          </div>
+
+          <div id="checkout-step-delivery" class="checkout-step-pane">
+            <h3 class="checkout-heading">Delivery Details</h3>
+            <p class="form-hint">* Required fields</p>
+
+            <div class="field-group" id="saved-address-wrap" hidden>
+              <label for="saved-address-select" class="field-label">Use saved address</label>
+              <select id="saved-address-select" name="savedAddress" class="form-control form-control-sm">
+                <option value="">Enter a new address…</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="chk-name" class="field-label">Full name <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="chk-name"
+                name="name"
+                class="form-control form-control-sm"
+                placeholder="Alex Rivera"
+                autocomplete="shipping name"
+                required
+                aria-describedby="chk-name-error"
+              />
+              <p class="field-error" id="chk-name-error" hidden></p>
+            </div>
+
+            <div class="field-group">
+              <label for="chk-email" class="field-label">Email address <span aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="chk-email"
+                name="email"
+                class="form-control form-control-sm"
+                placeholder="name@example.com"
+                autocomplete="email"
+                spellcheck="false"
+                required
+                aria-describedby="chk-email-error"
+              />
+              <p class="field-error" id="chk-email-error" hidden></p>
+            </div>
+
+            <div class="field-group">
+              <label for="chk-address" class="field-label">Street address <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="chk-address"
+                name="address"
+                class="form-control form-control-sm"
+                placeholder="742 Valencia St"
+                autocomplete="shipping street-address"
+                required
+                aria-describedby="chk-address-error"
+              />
+              <p class="field-error" id="chk-address-error" hidden></p>
+            </div>
+
+            <div class="checkout-split">
+              <div class="field-group">
+                <label for="chk-city" class="field-label">City <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="chk-city"
+                  name="city"
+                  class="form-control form-control-sm"
+                  placeholder="San Francisco"
+                  autocomplete="shipping address-level2"
+                  required
+                  aria-describedby="chk-city-error"
+                />
+                <p class="field-error" id="chk-city-error" hidden></p>
+              </div>
+              <div class="field-group">
+                <label for="chk-postal" class="field-label">Postal code <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="chk-postal"
+                  name="postal"
+                  class="form-control form-control-sm"
+                  placeholder="94110"
+                  autocomplete="shipping postal-code"
+                  inputmode="text"
+                  required
+                  aria-describedby="chk-postal-error"
+                />
+                <p class="field-error" id="chk-postal-error" hidden></p>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg btn-full" id="checkout-continue-btn">
+              Continue to Payment
+            </button>
+          </div>
+
+          <div id="checkout-step-payment" class="checkout-step-pane" hidden>
+            <h3 class="checkout-heading">Sandbox Payment</h3>
+            <div class="payment-summary-card">
+              <div class="payment-card-row">
+                <span>Ship to</span>
+                <strong id="payment-ship-preview"></strong>
+              </div>
+              <div class="payment-card-row">
+                <span>Method</span>
+                <span class="payment-method-badge">SOLIS Sandbox Pay · Visa •••• 4242</span>
+              </div>
+              <div class="payment-card-row">
+                <span>Amount due</span>
+                <strong id="payment-amount-due">$0.00</strong>
+              </div>
+            </div>
+
+            <div class="payment-actions">
+              <button type="submit" class="btn btn-primary btn-lg btn-full" id="checkout-submit">
+                Pay &amp; Place Order
+              </button>
+              <button type="button" class="btn btn-outline btn-sm btn-full" id="checkout-back-btn">
+                Edit Delivery Details
+              </button>
+            </div>
+          </div>
+
+          <div class="form-feedback" id="checkout-feedback" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <div class="checkout-receipt" id="checkout-receipt" tabindex="-1" hidden></div>
+    </div>
+  </aside>
+
+  <!-- Storefront Policies & Nutrition Info Drawer -->
+  <aside
+    class="drawer"
+    id="policy-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="policy-drawer-title"
+    hidden
+  >
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-kicker">SOLIS Standards</span>
+        <h2 id="policy-drawer-title">Storefront Policies</h2>
+      </div>
+      <button type="button" class="drawer-close" id="policy-close" aria-label="Close policy drawer">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="policy-tabs" role="tablist" aria-label="Storefront policy sections">
+        <button type="button" id="policy-tab-privacy" class="filter-chip policy-tab is-active" role="tab" aria-selected="true" aria-controls="policy-content" tabindex="0" data-policy-tab="privacy">Privacy</button>
+        <button type="button" id="policy-tab-terms" class="filter-chip policy-tab" role="tab" aria-selected="false" aria-controls="policy-content" tabindex="-1" data-policy-tab="terms">Terms</button>
+        <button type="button" id="policy-tab-shipping" class="filter-chip policy-tab" role="tab" aria-selected="false" aria-controls="policy-content" tabindex="-1" data-policy-tab="shipping">Cold-Chain</button>
+        <button type="button" id="policy-tab-returns" class="filter-chip policy-tab" role="tab" aria-selected="false" aria-controls="policy-content" tabindex="-1" data-policy-tab="returns">Returns</button>
+        <button type="button" id="policy-tab-nutrition" class="filter-chip policy-tab" role="tab" aria-selected="false" aria-controls="policy-content" tabindex="-1" data-policy-tab="nutrition">Nutrition</button>
+      </div>
+      <article class="policy-content" id="policy-content" role="tabpanel" aria-labelledby="policy-tab-privacy" tabindex="0"></article>
+    </div>
+  </aside>
+
+  <!-- Customer Account & Staff Operations Portals Mount Point -->
+  <div id="portals-root"></div>
+
+  <script src="app.js" defer></script>
+  <script src="js/portals.js" defer></script>
+</body>
+</html>

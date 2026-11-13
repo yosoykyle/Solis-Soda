@@ -1,0 +1,14 @@
+{
+  "name": "solis-soda-landing",
+  "version": "2.0.0",
+  "private": true,
+  "description": "SOLIS Botanical Sparkling Soda storefront, e-commerce API, and operations portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/ecom.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
